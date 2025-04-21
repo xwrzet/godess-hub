@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Be a Business Goddess™</title>
+  <title>Бизнес-Богиня™</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #fff0f5, #ffe4e1);
       color: #333;
       margin: 0;
       padding: 0;
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+    }
+    .slide-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1.5s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .hero {
       padding: 4rem;
@@ -22,18 +43,21 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       color: #d63384;
+      animation: fadeIn 2s ease-in;
     }
     .tagline {
       font-size: 1.25rem;
       margin-top: 1rem;
+      animation: fadeIn 3s ease-in;
     }
-    .modules, .cta {
+    .modules, .cta, .reviews {
       max-width: 800px;
       margin: 2rem auto;
       padding: 2rem;
       background: #fff;
       border-radius: 1rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: slideUp 1.5s ease-out;
     }
     .modules h2, .cta h2 {
       color: #d63384;
@@ -45,6 +69,7 @@
     }
     .modules li {
       margin-bottom: 1.5rem;
+      animation: fadeIn 1s ease-in forwards;
     }
     .cta button {
       background: #d63384;
@@ -54,43 +79,64 @@
       font-size: 1rem;
       border-radius: 0.5rem;
       cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .reviews {
-      background: #fff;
-      padding: 2rem;
-      max-width: 800px;
-      margin: 2rem auto;
-      border-radius: 1rem;
+    .cta button:hover {
+      transform: scale(1.05);
+      background: #c82373;
+    }
+    .review-block {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .review-block img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      transition: transform 0.4s ease;
+    }
+    .review-block img:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+    .review-block p {
       font-style: italic;
     }
   </style>
 </head>
 <body>
   <div class="hero">
-    <h1>Be a Business Goddess™</h1>
-    <p class="tagline">Manifest Millions. Breathe Abundance. Cry Elegantly.</p>
+    <h1>Бизнес-Богиня™</h1>
+    <p class="tagline">Манифестируй миллионы. Вдыхай изобилие. Плачь элегантно.</p>
   </div>
 
-  <div class="modules">
-    <h2>What You'll Learn</h2>
+  <div class="modules slide-up">
+    <h2>Что ты получишь</h2>
     <ul>
-      <li><strong>Module 1:</strong> Awaken Your Money Womb™ — Connect with the flow of universal wealth through interpretive dance and credit card affirmations.</li>
-      <li><strong>Module 2:</strong> Financial Chakras — Identify and unblock your inner tax evader.</li>
-      <li><strong>Module 3:</strong> Husband ROI — Learn how to monetize love with Google Sheets and a ring light.</li>
-      <li><strong>Module 4:</strong> Abundance Visualization — Replace budgets with vision boards and possibly CBD oil.</li>
-      <li><strong>Bonus:</strong> Sell the Course About Selling the Course — The sacred gypsy loop of financial ascension.</li>
+      <li><strong>Модуль 1:</strong> Пробуждение Денежной Матки™ — танцуй богатство, визуализируй кредиты.</li>
+      <li><strong>Модуль 2:</strong> Финансовые чакры — найди блок в себе и обвини маму.</li>
+      <li><strong>Модуль 3:</strong> ROI Мужчины — монетизируй любовь с помощью Google Sheets и любви к себе.</li>
+      <li><strong>Модуль 4:</strong> Абанданс Визуализация — забудь Excel, приклей блёстки к доске желаний.</li>
+      <li><strong>Бонус:</strong> Продавай курс про то, как ты продаёшь курс. Мета-мастерство.</li>
     </ul>
   </div>
 
-  <div class="cta">
-    <h2>Become Limitless Today</h2>
-    <p>Enroll now for only <strong>99,000₽</strong> (or 3 payments of 33,333₽ for karmic symmetry).</p>
-    <button>Join the Goddess Circle ✨</button>
+  <div class="cta slide-up">
+    <h2>Стань безграничной уже сегодня</h2>
+    <p>Участие — всего <strong>99,000₽</strong> или 3 платежа по 33,333₽ (для гармонии во Вселенной).</p>
+    <button>Войти в Круг Богинь ✨</button>
   </div>
 
-  <div class="reviews">
-    <p>"After this course, I quit my job, divorced my boring husband, and now sell PDFs to other women doing the same!" — Daria, 32</p>
-    <p>"I used to be broke. Now I’m in Bali with my money crystal and three soul clients." — Nastya, 27</p>
+  <div class="reviews slide-up">
+    <div class="review-block">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Daria">
+      <p>"После курса я уволилась, развелась и теперь продаю PDF-файлы другим женщинам, которые сделали то же самое!" — Дарья, 32</p>
+    </div>
+    <div class="review-block">
+      <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Nastya">
+      <p>"Раньше я была бедной. Сейчас я на Бали с денежным кристаллом и тремя клиентками души." — Настя, 27</p>
+    </div>
   </div>
 </body>
 </html>
